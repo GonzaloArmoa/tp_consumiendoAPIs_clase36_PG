@@ -28,12 +28,28 @@
         </form>
         
     </div>
-    <ul>
-        <% for( let i = 0; i < movies.length; i++ ) { %>
+    <% if (locals.titulo) { %>
+        <% if (movies.length) { %>
+            <h4>Resultado de la busqueda : <b><%= titulo %></b></h4>
+            <hr><br>
+            <ul>
+              
+       
+               <% }else {%>
+       
+                   <h4>No hay resultado para la busqueda de : <%= titulo %></h4>
+       
+                   <% }%>
+     
+    <% } %>
+    <% for( let i = 0; i < movies.length; i++ ) { %>
         <li>
             <a href="/movies/detail/<%= movies[i].id %>"><%= movies[i].title %></a>
         </li>
-        <% } %>
+    
+    <% } %>
+ </ul>
+
 
     </ul>
 </body>
